@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Miniwork3</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <style>
+        body, html {
+            padding: 0;
+            margin: 0;
+        }
+
+        .header {
+            background-color: rgb(220,220,220);
+            margin-top: 1px;
+            margin-bottom: 3px;
+            padding-bottom: 2px;
+            padding-top: 2px;
+            padding-left: 2%;
+            padding-right: 2%;
+            height: 40px;
+            font-family: Arial;
+            font-weight: bold;
+            box-shadow: 0 0 3px rgb(0,0,0);
+        }
+
+        .logo {
+            float: left;
+            line-height: 35px;
+        }
+
+        .button-div {
+            float: right;
+        }
+
+        .button-right {
+            box-shadow: 0 0 4px rgb(30,30,30) ;
+            margin: 2px 0;
+            font-size: 17px;
+        }
+
+        .toggles {
+            width: 197px;
+            margin: 0 auto;
+            list-style-type: none;
+            border: 1px solid gray;
+            padding: 0;
+            border-radius: 3px;
+            height: 28px;
+            line-height: 28px;
+            margin-top: 3px;
+            margin-bottom: 3px;
+        }
+
+        .toggles li {
+            float: left;
+            text-align: center;
+            line-height: 28px;
+            padding-left: 6px;
+            padding-right: 6px;
+            border-right: 1px solid gray;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #HTMLContainer , #CSSContainer, #JSContainer, #ResultContainer {
+            width: 50%;
+            float: left;
+            position: relative;
+        }
+
+        .codeContainer textarea {
+            width: 100%;
+            height: 100%;
+            border: none;
+            font-family: monospace;
+            border-right: 1px solid grey;
+            font-size: 14px;
+            padding: 3px;
+            box-sizing: border-box;
+        }
+
+        .codeLabel {
+        	position: absolute;
+        	top: 8px;
+        	right: 8px;
+        }
+
+        #CSSContainer, #JSContainer {
+        	display: none;
+        }
+
+        iframe {
+        	height: 100%;
+        	position: relative;
+        	left: 17px;
+        	border: none;
+        }
+
+        .selected {
+        	background-color: grey;
+        }
+    </style>
+<body>
+<div>
+    <div class='header'>
+        <div>
+            <div class='logo'>
+                CodePlayer
+            </div>
+            <div class='button-div'>
+                <button class='button-right' id='runButton'>Run</button>
+            </div>
+            <ul class='toggles'>
+                <li class='toggle selected'>HTML</li>
+                <li class='toggle'>CSS</li>
+                <li class='toggle'>JS</li>
+                <li class='toggle selected' style='border-right: none' >Result</li>
+            </ul>
+        </div>
+    </div>
+    <div class='clear'></div>
+    <div class='codeContainer' id='HTMLContainer'>
+    	<div class='codeLabel'>HTML</div>
+        <textarea id='htmlCode'><div id='test'></div></textarea>
+    </div>
+    <div class='codeContainer' id='CSSContainer'>
+    	<div class='codeLabel'>CSS</div>
+        <textarea id='cssCode'>html {background-color: blue;}</textarea>
+    </div>
+    <div class='codeContainer' id='JSContainer'>
+    	<div class='codeLabel'>JS</div>
+        <textarea id='jsCode'>document.getElementById('test').innerHTML='its working'</textarea>
+    </div>
+    <div class='codeContainer' id='ResultContainer'>
+    	<div class='codeLabel'>Result</div>
+        <iframe id='resultFrame'></iframe>
+    </div>
+</div>       
+<script src='jquery.js'></script>
+<script>
+    var windowHeight=$(window).height();
+    var headerHeight=$(".header").height();
+    var codeContainerHeight=windowHeight-headerHeight;
+    $(".codeContainer").height(codeContainerHeight+"px");
+    $('.toggle').click(function() {
+    	$(this).toggleClass('selected');
+    	var activeDiv=$(this).html();
+    	$('#'+activeDiv+'Container').toggle();
+    	var showingDivs=$('.codeContainer').filter(function() {
+    		return($(this).css("display") !== "none");
+    	}).length;
+    	var width=100/showingDivs;
+    	$('.codeContainer').width(width+'%');
+    });
+    $('#runButton').click(function() {
+    	$('iframe').contents().find("html").html('<style>'+$('#cssCode').val()+'</style>'+$("#htmlCode").val());
+    	document.getElementById('resultFrame').contentWindow.eval($('#jsCode').val());
+    })
+</script> 
+</body>
+</html>  

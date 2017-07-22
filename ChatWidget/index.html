@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Chat Widget</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
+    </head>
+    <style>
+    	.widget {
+    		padding: 20px;
+    	}
+
+    	.chatwidget-open {
+    		width: 435px;
+    		height: 730px;
+    		border-radius: 5px;
+    		box-shadow: 0 0 5px rgb(170,170,170);
+    	}
+
+    	.chatwidget-open h1 {
+    		background-color: rgb(64,157,214);
+    		line-height: 130px;
+    		color: white;
+    		font-size: 16px;
+    		padding: 10px;
+    		border-radius: 5px 5px 0 0;
+    	}
+
+    	.chatbutton {
+    		background-color: rgb(148,149,153);
+    	}
+    	
+    	.chatbutton:hover {
+    		background-color: rgb(148,149,153);
+    	}	
+
+    	.button-pos {
+    		text-align: center;
+    		margin-top: 450px;
+    	}
+    </style>
+<body>    
+<div class='container-fluid'>
+	<div class='widget'>
+		<a href="#chatwidget" data-toggle="collapse" role="button" aria-haspopup="true" aria-expanded="true"><img src='factorychaticon.png' alt='factory chat icon' /></a>
+		<div class='collapse chatwidget-open' id='chatwidget'>
+			<h1><img src='factorychat.png' alt='factory chat' />  Chat with FACTORY</h1>
+			<div class='button-pos'>
+				<button type='submit' class='btn btn-md btn-primary chatbutton'><img src='convoicon.png' alt='conversation icon' />Start the Conversation</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src='jquery.js'></script>
+<script src='js/bootstrap.js'></script>
+</body>
+</html>    

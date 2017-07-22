@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8' />
+	<title>
+		Project
+	</title>
+	<style>
+		#box {
+			width: 200px;
+			height: 200px;
+			background-color: black;
+			display : none;
+			position: relative;
+		}
+	</style>
+</head>
+
+<body>
+	<input id='answer' type='text' />
+	<br></br>
+	<div id='box'>
+	</div>
+	<script type='text/javascript' >
+		(function (){
+				var createdTime, clickedTime, reactionTime, doo, deo, dee;
+				function  dance() {
+										deo = Math.random(deo);
+										deo = deo * 9;
+										deo = Math.floor(deo);
+									createdTime = Date.now();
+									
+										doo = Math.random(doo);
+										doo = doo * 5001; 
+										doo = Math.floor(doo);
+										daa = doo * 0.2;
+										dee = doo/1000;
+										dee = Math.floor(dee);
+									/*var	color = ["red", "green", "gray", "blue", "purple", "orange","maroon", "tan"],
+										colo = color[deo];*/
+										function getRandomColor() {
+											var letters = '0123456789ABCDEF'.split('');
+											var color =  '#';
+											for (var i = 0; i < 6; i++ ) {
+												color += letters[Math.round(Math.random() * 15)];
+											}
+											return color;
+										}
+								setTimeout(function() {
+									document.getElementById('box').style.display = 'block';
+									deo;
+									if (dee>2) {
+										document.getElementById('box').style.borderRadius = '100px';
+									} else {
+										document.getElementById('box').style.borderRadius = '0px';
+									};
+									document.getElementById('box').style.background = getRandomColor();
+									createdTime = Date.now();
+								}, daa);
+							};
+							document.getElementById('box').onclick = function() {
+								var foo = (dee + deo) * 28 + (dee * 69), feo = (deo + dee) * 50 + (dee * 12) - (dee * 40);
+									document.getElementById('box').style.display = 'none';
+									document.getElementById('box').style.left = foo + "px";
+									document.getElementById('box').style.top =  feo + "px";
+									clickedTime = Date.now();
+									reactionTime = (clickedTime - createdTime)/1000;
+									document.getElementById('answer').value=reactionTime;
+									dance();
+								};	
+			dance();					
+							
+		}());	
+	</script>
+</body>
+</html>

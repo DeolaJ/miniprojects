@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>
+		java
+	</title>
+</head>
+<body>
+<p>Can this computer guess my random number between 0 and 10?</p>
+<input id='guessIt' />
+<button id='myButton'>Oya guess!</button>
+
+<script type='text/javascript'>
+document.getElementById('myButton').onclick = function() {
+	var x, gotIt = false, guess = 1;
+	if(document.getElementById('guessIt').value>9) {
+		alert("Sorry! This number is greater than 9");
+	} else{
+		while(gotIt == false) {
+				x = Math.random();
+				x = 10 * x;
+				x = Math.floor(x);
+				if (document.getElementById('guessIt').value==x) {
+					gotIt = true;
+				} else {
+					guess++;
+				};
+			};	
+			alert("It took this computer "+guess+" guesses to arrive at this number : "+x+".");
+		};	
+	}
+</script>
+<body>
+</html>

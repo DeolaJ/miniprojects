@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>
+		java
+	</title>
+	<style>
+	#box {
+		height: 100px;
+		width: 100px;
+		background-color: blue;
+		position: absolute;
+		left: 50px;
+		top: 50px;
+	}
+	</style>
+</head>
+<body>
+<div id='box'></div>
+
+
+<script type='text/javascript'>
+(function() { 
+	var speed = 10,
+		createdTime = Date.now(),
+		dee = 1,
+		dance = function() {	
+			var	foo = document.getElementById('box'),
+				fool = foo.offsetLeft,
+				foole = foo.offsetTop,
+				moveBy = 4;
+				
+
+			foo.style.top = foole + moveBy + "px";
+				function getRandomColor() {
+					var letters = '0123456789ABCDEF'.split('');
+					var color =  '#';
+					for (var i = 0; i < 6; i++ ) {
+						color += letters[Math.round(Math.random() * 15)];
+					}
+					return color;
+				}
+			document.getElementById('box').style.backgroundColor = getRandomColor();	
+			dee++;
+			if (foole > 400 ) {
+					foo.style.top = '402px';
+					foo.style.left = fool + moveBy + "px";
+					if (fool > 450) {
+						clearInterval(cool);
+
+					var	finalTime = Date.now();
+						doo = (finalTime - createdTime)/1000;
+						doo = Math.floor(doo);
+					};
+				};
+			};
+		function coal() {	if (doo = dee) {
+						var	dancer = function() {	
+								var	foo = document.getElementById('box'),
+									fool = foo.offsetLeft,
+									foole = foo.offsetTop,
+									moveBy = "-" + 4;
+									
+
+								foo.style.top = foole + moveBy + "px";
+									function getRandomColor() {
+										var letters = '0123456789ABCDEF'.split('');
+										var color =  '#';
+										for (var i = 0; i < 6; i++ ) {
+											color += letters[Math.round(Math.random() * 15)];
+										}
+										return color;
+									};
+								document.getElementById('box').style.backgroundColor = getRandomColor();	
+								if (foole < 400 ) {
+										foo.style.top = '50px';
+										foo.style.left = fool + moveBy + "px";
+										if (fool < 50) {
+											clearInterval(caal);
+										};
+									};		
+
+						};
+
+
+						};
+						var caal = setInterval(dancer, speed);
+					};			
+var cool = setInterval(dance, speed);
+	}());		
+
+
+</script>
+<body>
+</html>
